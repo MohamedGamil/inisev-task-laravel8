@@ -1,0 +1,143 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "SubDemoPlatform API documentation",
+        "description": "SubDemoPlatform API-v1 endpoints documentation and testing interface.",
+        "termsOfService": "",
+        "contact": {
+            "email": "gemy.dev@gmail.com"
+        },
+        "license": {
+            "name": "Private License",
+            "url": "#"
+        },
+        "version": "1.0.0"
+    },
+    "host": "",
+    "basePath": "/api/v1",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/create-post": {
+            "post": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Creates a new post.",
+                "description": "Creates a new post using given inputs.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "Title of new post",
+                        "required": true,
+                        "type": "string",
+                        "format": "varchar"
+                    },
+                    {
+                        "name": "slug",
+                        "in": "formData",
+                        "description": "Slug of new post",
+                        "required": false,
+                        "type": "string",
+                        "format": "varchar"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "Description of new post",
+                        "required": false,
+                        "type": "string",
+                        "format": "text"
+                    },
+                    {
+                        "name": "author_id",
+                        "in": "formData",
+                        "description": "Author ID of new post",
+                        "required": true,
+                        "type": "number",
+                        "format": "integer"
+                    },
+                    {
+                        "name": "website_id",
+                        "in": "formData",
+                        "description": "Website ID of new post",
+                        "required": true,
+                        "type": "number",
+                        "format": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Resources Not Found"
+                    }
+                }
+            }
+        },
+        "/subscribe": {
+            "post": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Subscribe to a website.",
+                "description": "Ssubscribe to a website using given email address and website ID.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email address",
+                        "required": true,
+                        "type": "string",
+                        "format": "varchar"
+                    },
+                    {
+                        "name": "website_id",
+                        "in": "formData",
+                        "description": "Website ID of new subscription",
+                        "required": true,
+                        "type": "number",
+                        "format": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Resources Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "description": "Authentication format: 'Bearer {AUTH-TOKEN}'",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "externalDocs": {
+        "description": "DevOps Documentation",
+        "url": "https://github.com/MohamedGamil"
+    }
+}
